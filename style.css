@@ -1,24 +1,86 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.container{
-    display: grid;
+header h1{
+    background-image: linear-gradient(to left, #03045e, #caf0f8);
+    font-size: 70px;
+    font-weight: 600;
+    color: transparent;
+    background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.container {
+    /* display: grid;
     grid-template-columns: 2;
     grid-template-areas: 
         "d d"
         "d d"
         "d d"
         "d d"
+    ; */
+}
+
+.dogcard {
+    /* grid-template: "d"; */
+}
+
+.dogcard img {
+    height: 400px;
+    float: left;
+    border-radius: 10px;
+}
+
+header img {
+    float: left;
+    height: 74px;
+    margin: 5px;
+}
+
+.container ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+
+
+}
+
+li a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    background-color: lightgray;
     ;
 }
 
-.dogcard{
-    grid-template: "d";
+li a:hover {
+    background-color: #1d3557;
+    color: white;
 }
 
-.dogcard img{
-    height: 400px;
+li .active {
+    background-color:#6cb1dc;
+}
+
+li .active:hover {
+    background-color: #6cb1dc;
+    color: black;
+}
+
+.dogcard {
+    margin: 5px;
+    background-color: #a8dadc;
+}
+body{
+    background-color: #f1faee;
 }

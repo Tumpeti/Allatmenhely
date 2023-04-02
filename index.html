@@ -19,50 +19,200 @@
 <body>
     <main>
         <header>
-            
-            <H1><img src="./images/logo.png" alt="logó">ÁLLATMENHELY</H1>
+            <img src="./images/logo.png" alt="logó">
+            <H1>ÁLLATMENHELY</H1>
         </header>
-        <nav></nav>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Állatmenhely</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Kutyáink</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Admin</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ">Más</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+
+
+        <!-- <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a href="#" class="active navbar-brand">Kutyáink</a></li>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li>
+                            <a href="#">Admin felület</a>
+                        </li>
+                        <li>
+                            <a href="#">Menü 3</a>
+                        </li>
+                        <li>
+                            <a href="#">Menü 4</a>
+                        </li>
+                        <li>
+                            <a href="#">Menü 5</a>
+                        </li>
+                        <li>
+                            <a href="#">Menü 6</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav> -->
         <div class="container">
-            <div class = "dogcard">
-                <h4>Kutya0</h4>
-                <img src="./images/kutya0.jpg" alt="Kutya0">
-                <p></p>
-            </div>
-            <div class = "dogcard">
-                <h4>Kutya1</h4>
-                <img src="./images/kutya1.jpg" alt="Kutya1">
-                <p></p>
-            </div>
-            <div class = "dogcard">
-                <h4>Kutya2</h4>
-                <img src="./images/kutya2.jpg" alt="Kutya2">
-                <p></p>
-            </div>
-            <div class = "dogcard">
-                <h4>Kutya3</h4>
-                <img src="./images/kutya3.jpg" alt="Kutya3">
-                <p></p>
-            </div>
-            <div class = "dogcard">
-                <h4>Kutya4</h4>
-                <img src="./images/kutya4.jpg" alt="Kutya4">
-                <p></p>
-            </div>
-            <div class = "dogcard">
-                <h4>Kutya5</h4>
-                <img src="./images/kutya5.jpg" alt="Kutya5">
-                <p></p>
-            </div>
-            <div class = "dogcard">
-                <h4>Kutya6</h4>
-                <img src="./images/kutya6.jpg" alt="Kutya6">
-                <p></p>
-            </div>
-            <div class = "dogcard">
-                <h4>Kutya7</h4>
-                <img src="./images/kutya7.jpg" alt="Kutya7">
-                <p></p>
+
+            <div class="row">
+                <div class="card dogcard col-6 col-md-4" style="width: 18rem;">
+                    <img src="./images/kutya0.jpg" alt="Kutya0">
+                    <div class="card-body">
+                        <h5 class="card-title">Gizmo</h4>
+                            <ul>
+                                <li>Méret:</li>
+                                <li>Fajta</li>
+                                <li>Kor:</li>
+                            </ul>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
+                                quisquam.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+
+                <div class="card dogcard col-6 col-md-4" style="width: 18rem;">
+                    <img src="./images/kutya1.jpg" class="card-img-top" alt="Kutya1">
+                    <div class="card-body">
+                        <h5 class="card-title">Bogyó</h5>
+                        <ul>
+
+                            <li>Méret:</li>
+                            <li>Fajta</li>
+                            <li>Kor:</li>
+                        </ul>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quisquam.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+
+                <div class="card dogcard col-6 col-md-4" style="width: 18rem;">
+                    <img src="./images/kutya2.jpg" alt="Kutya2">
+                    <div class="card-body">
+                        <h5 class="card-title">Sörény</h5>
+                        <ul>
+
+                            <li>Méret:</li>
+                            <li>Fajta</li>
+                            <li>Kor:</li>
+                        </ul>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quisquam.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                    </div>
+                </div>
+
+                <div class="card dogcard col-6 col-md-4" style="width: 18rem;">
+                    <img src="./images/kutya3.jpg" alt="Kutya3">
+                    <div class="card-body">
+                        <h5 class="card-title">Kifli</h5>
+                        <ul>
+
+                            <li>Méret:</li>
+                            <li>Fajta</li>
+                            <li>Kor:</li>
+                        </ul>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quisquam.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+
+
+
+                <div class="card dogcard col-6 col-md-4" style="width: 18rem;">
+                    <img src="./images/kutya4.jpg" alt="Kutya4">
+                    <div class="card-body">
+                        <h5 class="card-title">Mogyoró</h5>
+                        <ul>
+
+                            <li>Méret:</li>
+                            <li>Fajta</li>
+                            <li>Kor:</li>
+                        </ul>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quisquam.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                    </div>
+                </div>
+
+                <div class="card dogcard col-6 col-md-4" style="width: 18rem;">
+                    <img src="./images/kutya5.jpg" alt="Kutya5">
+                    <div class="card-body">
+                        <h5 class="card-title">Sajó</h5>
+                        <ul>
+
+                            <li>Méret:</li>
+                            <li>Fajta</li>
+                            <li>Kor:</li>
+                        </ul>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quisquam.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                    </div>
+                </div>
+
+                <div class="card dogcard col-6 col-md-4" style="width: 18rem;">
+                    <img src="./images/kutya6.jpg" alt="Kutya6">
+                    <div class="card-body">
+                        <h5 class="card-title">Tücsök</h5>
+                        <ul>
+
+                            <li>Méret:</li>
+                            <li>Fajta</li>
+                            <li>Kor:</li>
+                        </ul>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quisquam.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+
+                <div class="card dogcard col-6 col-md-4" style="width: 18rem;">
+                    <img src="./images/kutya7.jpg" alt="Kutya7">
+                    <div class="card-body">
+                        <h5 class="card-title">Répa</h5>
+                        <ul>
+
+                            <li>Méret:</li>
+                            <li>Fajta</li>
+                            <li>Kor:</li>
+                        </ul>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quisquam.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
