@@ -4,34 +4,43 @@
     box-sizing: border-box;
 }
 
-header h1{
+header h1 {
     background-image: linear-gradient(to left, #03045e, #caf0f8);
     font-size: 70px;
     font-weight: 600;
     color: transparent;
     background-clip: text;
-  -webkit-background-clip: text;
+    -webkit-background-clip: text;
 }
 
+/*
 .container {
-    /* display: grid;
+     display: grid;
     grid-template-columns: 2;
     grid-template-areas: 
         "d d"
         "d d"
         "d d"
         "d d"
-    ; */
+    ; 
 }
 
 .dogcard {
-    /* grid-template: "d"; */
+    grid-template: "d"; 
+}
+*/
+.dogcard img{
+    object-fit: cover;
+    width: 260px;
+    height: 330px;
+    border-radius: 5px;
 }
 
-.dogcard img {
+.modal-img {
     height: 400px;
-    float: left;
-    border-radius: 10px;
+    border-radius: 5px;
+
+    float: right;
 }
 
 header img {
@@ -69,7 +78,7 @@ li a:hover {
 }
 
 li .active {
-    background-color:#6cb1dc;
+    background-color: #6cb1dc;
 }
 
 li .active:hover {
@@ -81,6 +90,33 @@ li .active:hover {
     margin: 5px;
     background-color: #a8dadc;
 }
-body{
+
+body {
     background-color: #f1faee;
+}
+
+.btn-success{
+    width: 100px;
+    text-align: center;
+}
+
+.previous{
+    position: absolute;
+    top: 95%;
+    right: 74%;
+    width: 120px;
+  transform: translateY(-50%);
+}
+
+.next{
+    cursor: pointer;
+position: absolute;
+top: 95%;
+left: 74%;
+width: 120px;
+transform: translateY(-50%);
+}
+
+.modal-footer{
+    height: 50px;
 }
