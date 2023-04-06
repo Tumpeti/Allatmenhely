@@ -1,28 +1,32 @@
 import { KUTYALISTA } from "./data.js";
 import { KUTYAKULCS } from "./data.js";
 
-
 $(document).ready(function () {
     console.log("document ready")
     const DOGCARDPLACE = $(".dogcardplace")
+    const MODALPLACE = $(".modal-content")
     //DOGCARD.html(KUTYALISTA.kephely)
     //console.log(KUTYAKULCS.nev + ": " + (KUTYALISTA[1].nev))
-    DOGCARDPLACE.html(dogCardLoader(DOGCARDPLACE))
+    DOGCARDPLACE.html(dogCardLoader())
 
     const MODALBUTTON = $(".modal-button")
-    let myDogIndex = pushedDogIndex(MODALBUTTON,"kutya")
+    let myDogIndex = MODALBUTTON.click(function(){
+        let index = Number(MODALBUTTON.index(this));
+        console.log(index)
+        loadModalContent(MODALPLACE, index)
+    })
 
-    const MODALPLACE = $(".modal-content")
+    
 
-    loadModalContent(MODALPLACE, myDogIndex)
+    //loadModalContent(MODALPLACE, myDogIndex)
 
     const nextButton = $(".btn-succes")
     nextButton.html("semmi")
-    pushedDogIndex(nextButton,"next-dog-btn")
+    //pushedDogIndex(nextButton, "next-dog-btn")
 
 })
 
-function dogCardLoader(dogcardplace) {
+function dogCardLoader() {
     console.log("dogcardLoader ready")
     //console.log(dogcardplace.eq(0))
     //console.log(dogcardplace.length)
@@ -31,45 +35,30 @@ function dogCardLoader(dogcardplace) {
     for (let i = 0; i < KUTYALISTA.length; i++) {
         dogCardString +=
             `<div class="card dogcard col-6 col-md-4" style="width: 18rem;">
-            <img src="${KUTYALISTA[i].kephely}" alt="Kutya${i}">
-            <div class="card-body">
-                <h5 class="card-title">${KUTYALISTA[i].nev}</h4>
-                    <ul>
-                        <li>${KUTYAKULCS.kor}: ${KUTYALISTA[i].kor}</li>
-                        <li>${KUTYAKULCS.fajta}: ${KUTYALISTA[i].fajta}</li>
-                        <li>${KUTYAKULCS.nem}: ${KUTYALISTA[i].nem}</li>
-                        <li>${KUTYAKULCS.marmagassag}: ${KUTYALISTA[i].marmagassag}</li>
-                    </ul>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
-                        quisquam.</p>
-                    
-                    <button type="button" class="btn btn-primary modal-button" id="kutya${i}" data-toggle="modal"
-                        data-target="#exampleModalCenter">
-                        Megnézem
-                    </button>
-            </div>
-        </div>`
+                <img src="${KUTYALISTA[i].kephely}" alt="Kutya${i}">
+                <div class="card-body">
+                    <h5 class="card-title">${KUTYALISTA[i].nev}</h4>
+                        <ul>
+                            <li>${KUTYAKULCS.kor}: ${KUTYALISTA[i].kor}</li>
+                            <li>${KUTYAKULCS.fajta}: ${KUTYALISTA[i].fajta}</li>
+                            <li>${KUTYAKULCS.nem}: ${KUTYALISTA[i].nem}</li>
+                            <li>${KUTYAKULCS.marmagassag}: ${KUTYALISTA[i].marmagassag}</li>
+                        </ul>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quisquam.</p>
+                        <button type="button" class="btn btn-primary modal-button" id="kutya${i}" data-toggle="modal" 
+                        data-target="#exampleModalCenter">Megnézem</button>
+                </div>
+            </div>`
     }
     dogCardString += "</div>"
     return dogCardString
 }
 
-
-function pushedDogIndex(button,string) {
-    button.click(function () {
-        const buttonId = $(this).attr("id");
-        let dogIndex = Number(buttonId.substring(string.length));
-        console.log("dogindex:" +dogIndex)
-        loadModalContent($(".modal-content"), dogIndex);
-        return dogIndex;
-    })();
-}
-
 function loadModalContent(htmlPlace, dogIndex) {
     console.log("DogIndex: " + dogIndex)
     let myString =
-        
-    `<div class="modal-header">
+
+        `<div class="modal-header">
             <h5 class="modal-title" id="exampleModalLongTitle">${KUTYALISTA[dogIndex].nev}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -90,63 +79,25 @@ function loadModalContent(htmlPlace, dogIndex) {
         </div>`
     htmlPlace.html(myString)
 
-    nextButton();
-    previousButton();
+    nextButton(dogIndex);
+    previousButton(dogIndex);
 }
 
-function previousButton() {
-    const previousButton = $(".previous");
-    let actualIndex = pushedDogIndex(previousButton, "previous-dog-btn");
-    console.log("actualIndex: " +actualIndex)
-    loadModalContent($(".modal-content"), actualIndex-1)
-}
 
-function nextButton() {
+function nextButton(dogIndex) {
+    const MODALPLACE = $(".modal-content")
+    console.log("next started")
     const nextButton = $(".next");
-    let actualIndex = pushedDogIndex(nextButton, "next-dog-btn");
-    console.log("actualIndex: " +actualIndex)
-    loadModalContent($(".modal-content"), actualIndex+1)
-
+        nextButton.click(function(){
+            dogIndex=(dogIndex >= KUTYALISTA.length-1?0:dogIndex + 1);
+            loadModalContent(MODALPLACE, dogIndex)})
 }
 
-function jobbraLeptet(i){
-    i += 1;
-    if (i>KEPEK.length-1){
-        i = 0
-    }
-    kezdoKep = i
-    kep.src = KEPEK[i]
-    console.log("index: " + i)
+function previousButton(dogIndex) {
+    const MODALPLACE = $(".modal-content")
+    console.log("previous started")
+    const previousButton = $(".previous");
+    previousButton.click(function(){
+        dogIndex=(dogIndex <= 0?KUTYALISTA.length-1:dogIndex - 1)
+        loadModalContent(MODALPLACE, dogIndex)})
 }
-
-
-/*let jobbraGomb = document.querySelector(".jobb")
-    jobbraGomb.addEventListener("click", function(){
-        jobbraLeptet(NAGYKEP, kezdoKep)
-    })
-
-    let balraGomb = document.querySelector(".bal")
-    balraGomb.addEventListener("click", function(){
-        balraLeptet(NAGYKEP, kezdoKep)
-    })
-
-}
-function jobbraLeptet(kep, i){
-    i += 1;
-    if (i>KEPEK.length-1){
-        i = 0
-    }
-    kezdoKep = i
-    kep.src = KEPEK[i]
-    console.log("index: " + i)
-}
-
-function balraLeptet(kep, i){
-    i -= 1;
-    if (i<0){
-        i = KEPEK.length-1
-    }
-    kezdoKep = i
-    kep.src = KEPEK[i]
-    console.log("index: " + i)
-}*/
