@@ -3,10 +3,11 @@ import { KUTYAKULCS } from "./data.js";
 
 $(document).ready(function () {
     console.log("document ready")
-    const DOGCARDPLACE = $(".dogcardplace")
+    const DOGCARDPLACE = $(".dogcards")
     const MODALPLACE = $(".modal-content")
     //DOGCARD.html(KUTYALISTA.kephely)
     //console.log(KUTYAKULCS.nev + ": " + (KUTYALISTA[1].nev))
+
     DOGCARDPLACE.html(dogCardLoader())
 
     const MODALBUTTON = $(".modal-button")
@@ -22,7 +23,7 @@ $(document).ready(function () {
 
     const nextButton = $(".btn-succes")
     nextButton.html("semmi")
-    //pushedDogIndex(nextButton, "next-dog-btn")
+  
 
 })
 
@@ -30,14 +31,14 @@ function dogCardLoader() {
     console.log("dogcardLoader ready")
     //console.log(dogcardplace.eq(0))
     //console.log(dogcardplace.length)
-    let dogCardString = `<div class="container">
-                            <div class="row">`;
+    let dogCardString = `<div class="row g-3">`;
     for (let i = 0; i < KUTYALISTA.length; i++) {
         dogCardString +=
-            `<div class="card dogcard col-6 col-md-4" style="width: 18rem;">
-                <img src="${KUTYALISTA[i].kephely}" alt="Kutya${i}">
+            `<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card" style="max-width: 250px;">
+                <img src="${KUTYALISTA[i].kephely}"  class="card-img-top" alt="Kutya${i}">
                 <div class="card-body">
-                    <h5 class="card-title">${KUTYALISTA[i].nev}</h4>
+                    <h5 class="card-title" id="ModalCenterTitle">${KUTYALISTA[i].nev}</h5>
                         <ul>
                             <li>${KUTYAKULCS.kor}: ${KUTYALISTA[i].kor}</li>
                             <li>${KUTYAKULCS.fajta}: ${KUTYALISTA[i].fajta}</li>
@@ -45,10 +46,11 @@ function dogCardLoader() {
                             <li>${KUTYAKULCS.marmagassag}: ${KUTYALISTA[i].marmagassag}</li>
                         </ul>
                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quisquam.</p>
-                        <button type="button" class="btn btn-primary modal-button" id="kutya${i}" data-toggle="modal" 
-                        data-target="#exampleModalCenter">Megnézem</button>
+                        <button type="button" class="btn btn-primary modal-button" id="kutya${i}" data-bs-toggle="modal" 
+                        data-bs-target="#dogModalCenter">Megnézem</button>
                 </div>
-            </div>`
+            </div>
+        </div>`
     }
     dogCardString += "</div>"
     return dogCardString
@@ -59,8 +61,8 @@ function loadModalContent(htmlPlace, dogIndex) {
     let myString =
 
         `<div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">${KUTYALISTA[dogIndex].nev}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <h5 class="modal-title" id="dogModalCenterTitle">${KUTYALISTA[dogIndex].nev}</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-bs-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -76,7 +78,7 @@ function loadModalContent(htmlPlace, dogIndex) {
             <button type="button" class="btn btn-success next" id="next-dog-btn${dogIndex}">Következő</button>
             
             
-        </div>`
+        </div>`;
     htmlPlace.html(myString)
 
     nextButton(dogIndex);

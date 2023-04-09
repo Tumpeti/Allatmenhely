@@ -29,12 +29,12 @@ header h1 {
     grid-template: "d"; 
 }
 */
-.dogcard img{
+/* .dogcard img{
     object-fit: cover;
     width: 260px;
     height: 330px;
     border-radius: 5px;
-}
+} */
 
 .modal-img {
     height: 400px;
@@ -48,21 +48,21 @@ header img {
     height: 74px;
     margin: 5px;
 }
-
+/* 
 .container ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-}
+} */
 
-nav ul {
+/* nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     width: 100px;
 
 
-}
+} */
 
 li a {
     display: block;
@@ -86,27 +86,27 @@ li .active:hover {
     color: black;
 }
 
-.dogcard {
+/* .dogcard {
     margin: 5px;
     background-color: #a8dadc;
-}
+} */
 
 body {
     background-color: #f1faee;
 }
 
-.btn-success{
+/* .btn-success{
     width: 100px;
     text-align: center;
-}
+} */
 
-.previous{
+ .previous{
     position: absolute;
     top: 95%;
     right: 74%;
     width: 120px;
   transform: translateY(-50%);
-}
+} 
 
 .next{
     cursor: pointer;
@@ -120,3 +120,14 @@ transform: translateY(-50%);
 .modal-footer{
     height: 50px;
 }
+
+.card {
+    width: 300px; /* Set a fixed width */
+    height: 700px; /* Set a fixed height */
+    overflow: hidden; /* Ensure that images don't overflow the container */
+  }
+  
+  .card img {
+    width: 100%; /* Make the image fill the container width */
+    height: auto; /* Ensure that the image maintains its aspect ratio */
+  }
