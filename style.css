@@ -100,7 +100,7 @@ body {
     text-align: center;
 } */
 
- .previous{
+ /* .previous{
     position: absolute;
     top: 95%;
     right: 74%;
@@ -115,11 +115,11 @@ top: 95%;
 left: 74%;
 width: 120px;
 transform: translateY(-50%);
-}
+} */
 
-.modal-footer{
+/* .modal-footer{
     height: 50px;
-}
+} */
 
 .card {
     width: 300px; /* Set a fixed width */
