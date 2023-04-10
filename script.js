@@ -28,14 +28,26 @@ $(document).ready(function () {
     const TABLEPLACE = $(".table")
     TABLEPLACE.html(dogTableLoader(KUTYALISTA))
 
-    const ADDOG = $(".add-dog")
+    const NemInputElem = $("#szuka")
+    console.log(NemInputElem.val())
+    const ADDOG = $("#add-dog")
     ADDOG.click(function(){
+        console.log(NemInputElem.val())
         const kutya = {};
         kutya.nev = $("#nev").val()
         kutya.kor = $("#kor").val()
         kutya.fajta = $("#fajta").val()
         kutya.lab = $("#lab").val()
-        kutya.nem = $("#nem").val()
+
+        if (NemInputElem.is(":checked")) {
+            kutya.nem = "szuka";
+            console.log("szuka")
+          } else {
+            kutya.nem = "kan";
+            console.log("kan")
+          }
+
+        
         kutya.marmagassag = $("#marmagassag").val()
         KUTYALISTA.push(kutya)
         
@@ -45,7 +57,41 @@ $(document).ready(function () {
         TABLEPLACE.html(dogContent)
     })
 
+    const editButton = $(".btn-edit")
+    editButton.click(function(){
+        let index = editButton.index(this);
+        editTableRow(index);
+    })
+
 })
+
+function editTableRow(index) {
+    
+    console.log(`megnyomtad ${index}. szerkeszt gombot`);
+    let tableRow = $("tr").eq(index + 1);
+    tableRow.html(`<th scope="row">${index + 1}</th>
+        <td><input type="text" id="editNev" name="editNev" value="${KUTYALISTA[index].nev}" style="width: 65px;"></td>
+        <td><input type="text" id="editKor" name="editKor" value="${KUTYALISTA[index].kor}" style="width: 65px;"></td>
+        <td><input type="text" id="editFajta" name="editFajta" value="${KUTYALISTA[index].fajta}" style="width: 65px;"></td>
+        <td><input type="text" id="editLab" name="editLab" value="${KUTYALISTA[index].lab}" style="width: 65px;"></td>
+        <td><input type="text" id="editIvar" name="editIvar" value="${KUTYALISTA[index].nem}" style="width: 65px;"></td>
+        <td><input type="text" id="editMarmagassag" name="editMarmagassag" value="${KUTYALISTA[index].marmagassag}" style="width: 65px;"></td>
+        <td><button type="button" class="btn btn-success btn-save" style="width: 100px;">Mentés</button><button type="button"
+            class="btn btn-danger delete">Törlés</button></td>`);
+
+    const saveButton = $(".btn-save");
+    saveButton.click(function () {
+        KUTYALISTA[index].nev = $("#editNev").val();
+        KUTYALISTA[index].kor = $("#editKor").val();
+        KUTYALISTA[index].fajta = $("#editFajta").val();
+        KUTYALISTA[index].lab = $("#editLab").val();
+        KUTYALISTA[index].nem = $("#editIvar").val();
+        KUTYALISTA[index].marmagassag = $("#editMarmagassag").val();
+        console.log(KUTYALISTA[index]);
+        $(".table").html(dogTableLoader(KUTYALISTA));
+
+    });
+}
 
 function dogCardLoader(lista) {
     console.log("dogcardLoader ready")
@@ -151,11 +197,14 @@ function dogTableLoader(lista){
             <td>${lista[i].lab}</td>
             <td>${lista[i].nem}</td>
             <td>${lista[i].marmagassag}</td>
-            <td><button type="button" class="btn btn-warning">Szerkesztés</button><button type="button" class="btn btn-danger delete">Törlés</button></td>
+            <td><button type="button" class="btn btn-warning btn-edit" style="width: 100px;">Szerkesztés</button><button type="button" class="btn btn-danger delete">Törlés</button></td>
           </tr>`
     }
     dogTableString += "</tbody></table>"
+
     return dogTableString
+
+    
 }
 
 function dogTableAdder(kutya){

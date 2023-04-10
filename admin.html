@@ -73,7 +73,84 @@
       </div>
     </nav>
 
-    <div class="container-fluid border border-warning" style="padding: 20px;">
+    <form class="col-6" action="javascript:void(0)">
+
+      <div class="mb-lg-4" style="margin-top: 10px;">
+        <label for="nev" class="form-label">Név</label>
+        <input type="text" class="form-control" id="nev" aria-describedby="nev" placeholder="név">
+      </div>
+
+      <div class="mb-lg-4">
+        <label for="kor" class="form-label">Kor</label>
+        <input type="number" class="form-control" id="kor" placeholder="kor">
+      </div>
+
+      <div class="mb-lg-4">
+        <label for="fajta" class="form-label">Fajta</label>
+        <input type="text" class="form-control" id="fajta" placeholder="fajta">
+      </div>
+
+      <div class="mb-lg-4">
+        <label for="lab" class="form-label">Láb</label>
+        <input type="text" class="form-control" id="lab" placeholder="láb">
+      </div>
+
+      <div class="mb-lg-4">
+        <label for="marmagassag" class="form-label">Marmagasság</label>
+        <input type="text" class="form-control" id="marmagassag" placeholder="marmagasság">
+      </div>
+
+      <div class="border" style="margin-top: 10px;">
+        <label class="form-check-label" for="name">Ivar</label>
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="nem" id="szuka" value="szuka" checked />
+          <label class="form-check-label" for="szuka">
+            Szuka
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="nem" id="kan" value="kan" />
+          <label class="form-check-label" for="kan">
+            Kan
+          </label>
+        </div>
+
+      </div>
+
+      <button style="margin: 10px;" type="submit" class="btn-lg btn-primary" id="add-dog" >Hozzáad</button>
+    </form>
+
+    <!-- <table>
+    <thead>
+      <tr>
+        <th scope="col">Sorszám</th>
+        <th scope="col">Név</th>
+        <th scope="col">Kor</th>
+        <th scope="col">Fajta</th>
+        <th scope="col">Láb</th>
+        <th scope="col">Ivar</th>
+        <th scope="col">Marmagasság</th>
+        <th scope="col">Törlés / Szerkesztés</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">${i+1}</th>
+        <td><input type="text" id="editNev" name="editNev" value="${KUTYALISTA.[].NEV}" style="width: 90px;"></td>
+        <td><input type="text" id="editKor" name="editKor" value="${KUTYALISTA.[].}" style="width: 90px;"></td>
+        <td><input type="text" id="editFajta" name="editFajta" value="${KUTYALISTA.[].}" style="width: 90px;"></td>
+        <td><input type="text" id="editLab" name="editLab" value="${KUTYALISTA.[].}" style="width: 90px;"></td>
+        <td><input type="text" id="editIvar" name="editIvar" value="${KUTYALISTA.[].}" style="width: 90px;"></td>
+        <td><input type="text" id="editMarmagassag" name="editMarmagassag" value="${KUTYALISTA.[].}" style="width: 90px;"></td>
+        <td><button type="button" class="btn btn-warning">Szerkesztés</button><button type="button"
+            class="btn btn-danger delete">Törlés</button></td>
+      </tr>
+    </tbody>
+    </table> -->
+
+    <!-- <div class="container-fluid border border-warning" style="padding: 20px;">
       <form>
         <div class="row">
           <div class="col">
@@ -97,7 +174,7 @@
         </div>
         <button type="button" class="btn btn-success add-dog">Hozzáad</button>
       </form>
-    </div>
+    </div> -->
 
 
     <table class="table">
