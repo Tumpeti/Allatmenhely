@@ -55,6 +55,13 @@ $(document).ready(function () {
         let dogContent = dogTableLoader(KUTYALISTA)
 
         TABLEPLACE.html(dogContent)
+
+        const editButton = $(".btn-edit")
+    editButton.click(function(){
+        let index = editButton.index(this);
+        editTableRow(index);
+    })
+
     })
 
     const editButton = $(".btn-edit")
@@ -89,6 +96,12 @@ function editTableRow(index) {
         KUTYALISTA[index].marmagassag = $("#editMarmagassag").val();
         console.log(KUTYALISTA[index]);
         $(".table").html(dogTableLoader(KUTYALISTA));
+
+        const editButton = $(".btn-edit")
+        editButton.click(function(){
+        let index = editButton.index(this);
+        editTableRow(index);
+    })
 
     });
 }
