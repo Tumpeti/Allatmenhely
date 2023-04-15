@@ -5,8 +5,6 @@ $(document).ready(function () {
     console.log("document ready")
     const DOGCARDPLACE = $(".dogcards")
     const MODALPLACE = $(".modal-content")
-    //DOGCARD.html(KUTYALISTA.kephely)
-    //console.log(KUTYAKULCS.nev + ": " + (KUTYALISTA[1].nev))
 
     DOGCARDPLACE.html(dogCardLoader(KUTYALISTA))
 
@@ -33,7 +31,7 @@ $(document).ready(function () {
     const ADDOG = $("#add-dog")
     ADDOG.click(function(){
         console.log(NemInputElem.val())
-        const kutya = {};
+        const kutya = {};d
         kutya.nev = $("#nev").val()
         kutya.kor = $("#kor").val()
         kutya.fajta = $("#fajta").val()
@@ -108,14 +106,13 @@ function editTableRow(index) {
 
 function dogCardLoader(lista) {
     console.log("dogcardLoader ready")
-    //console.log(dogcardplace.eq(0))
-    //console.log(dogcardplace.length)
+   
     let dogCardString = `<div class="row g-3">`;
     for (let i = 0; i < lista.length; i++) {
         dogCardString +=
             `<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card" style="max-width: 250px;">
-                <img src="${lista[i].kephely}"  class="card-img-top" alt="Kutya${i}">
+                <div class="card" >
+                <img src="${lista[i].kephely}" style="width:auto; height:350px ;object-fit: cover;"  class="card-img-top" alt="Kutya${i}">
                 <div class="card-body">
                     <h5 class="card-title" id="ModalCenterTitle">${lista[i].nev}</h5>
                         <ul>
@@ -146,7 +143,7 @@ function loadModalContent(htmlPlace, dogIndex) {
             </button>
         </div>
         <div class="modal-body">
-            <img class="modal-img img-fluid" src="${KUTYALISTA[dogIndex].kephely}" alt="Kutya${dogIndex}">
+            <img class="modal-img img-fluid" style="width:300px; height:375px ;object-fit: cover;" src="${KUTYALISTA[dogIndex].kephely}" alt="Kutya${dogIndex}">
             <li style="list-style-type: none;">${KUTYAKULCS.kor}: ${KUTYALISTA[dogIndex].kor}</li>
             <li style="list-style-type: none;">${KUTYAKULCS.fajta}: ${KUTYALISTA[dogIndex].fajta}</li>
             <li style="list-style-type: none;">${KUTYAKULCS.nem}: ${KUTYALISTA[dogIndex].nem}</li>
